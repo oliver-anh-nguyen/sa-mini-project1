@@ -1,7 +1,11 @@
 spring:
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
   application:
     name: sa-mini-project1
-
   datasource:
     password: postgres
     url: jdbc:postgresql://localhost:5432/mini-project1-db
@@ -29,4 +33,4 @@ spring:
 
 
 server:
-  port: 8080
+  port: 0
