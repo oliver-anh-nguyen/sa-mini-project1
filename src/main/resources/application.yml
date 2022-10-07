@@ -1,4 +1,9 @@
 spring:
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
   application:
     name: sa-mini-project1
   datasource:
@@ -22,29 +27,15 @@ spring:
     init:
       mode: always
 
-
   main:
     allow-bean-definition-overriding: true
 
-
   security:
     oauth2:
-      client:
-        registration:
-          keycloak:
-            scope: openid
-            authorization-grant-type: authorization_code
-            client-id: sa-mini-project1
-        provider:
-          keycloak:
-            issuer-uri: http://localhost:9090/realms/sa-mini-project1-realm
-            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/sa-mini-project1-realm
+          jwk-set-uri: http://localhost:9090/realms/sa-mini-project1-realm/protocol/openid-connect/certs
 
 server:
   port: 8080
-
-keycloak:
-  realm: sa-mini-project1-realm
-  auth-server-url: http://localhost:9090/
-  resource: sa-mini-project1
-  bearer-only: true

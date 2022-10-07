@@ -1,5 +1,8 @@
-package edu.miu.sa.miniproject1;
+package edu.miu.sa.miniproject1.batch;
 
+import edu.miu.sa.miniproject1.entity.Student;
+import edu.miu.sa.miniproject1.dto.StudentDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -12,7 +15,6 @@ import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilde
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -21,23 +23,22 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableBatchProcessing
+@RequiredArgsConstructor
 public class BatchConfiguration {
 
-    @Autowired
-    public JobBuilderFactory jobBuilderFactory;
+    public final JobBuilderFactory jobBuilderFactory;
 
-    @Autowired
-    public StepBuilderFactory stepBuilderFactory;
+    public final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public FlatFileItemReader<StudentInput> reader() {
-        return new FlatFileItemReaderBuilder<StudentInput>()
+    public FlatFileItemReader<StudentDto> reader() {
+        return new FlatFileItemReaderBuilder<StudentDto>()
                 .name("studentItemReader")
                 .resource(new ClassPathResource("student-input.csv"))
                 .delimited()
-                .names(new String[]{"firstName", "lastName", "gpa", "dob"})
-                .fieldSetMapper(new BeanWrapperFieldSetMapper<StudentInput>() {{
-                    setTargetType(StudentInput.class);
+                .names(new String[]{"firstName", "lastName", "gpa", "age"})
+                .fieldSetMapper(new BeanWrapperFieldSetMapper<>() {{
+                    setTargetType(StudentDto.class);
                 }})
                 .build();
     }
@@ -69,7 +70,7 @@ public class BatchConfiguration {
     @Bean
     public Step step1(JdbcBatchItemWriter<Student> writer) {
         return stepBuilderFactory.get("step1")
-                .<StudentInput, Student> chunk(10)
+                .<StudentDto, Student> chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer)

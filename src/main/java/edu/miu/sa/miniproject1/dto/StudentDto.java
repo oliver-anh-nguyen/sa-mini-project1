@@ -1,19 +1,19 @@
-package edu.miu.sa.miniproject1;
+package edu.miu.sa.miniproject1.dto;
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
-public class StudentInput {
+public class StudentDto {
+
     private String firstName;
 
     private String lastName;
 
     private double gpa;
 
-    private int dob;
+    private int age;
 }
