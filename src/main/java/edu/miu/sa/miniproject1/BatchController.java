@@ -1,5 +1,4 @@
 package edu.miu.sa.miniproject1;
-
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
@@ -22,8 +21,7 @@ public class BatchController {
     @Autowired
     private Job job;
 
-    // The function below accepts a GET request to invoke the Batch Process and returns a String as response with the message "Batch Process started!!".
-    @GetMapping(path = "/start") // Start batch process path
+    @GetMapping(path = "/start")
     public Mono<String> startBatch() {
         JobParameters Parameters = new JobParametersBuilder()
                 .addLong("startAt", System.currentTimeMillis()).toJobParameters();
