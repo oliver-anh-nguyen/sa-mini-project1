@@ -6,8 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
+
 
 public class StudentItemProcessor implements ItemProcessor<StudentInput, Student> {
 
@@ -21,8 +20,8 @@ public class StudentItemProcessor implements ItemProcessor<StudentInput, Student
 
         LocalDate now = LocalDate.now();
         LocalDate dob = now.minusYears(dobYear)
-                .minusMonths(dobMonth)
-                .minusDays(dobDay);
+                .minusMonths(now.getMonth().getValue()-1)
+                .minusDays(now.getDayOfMonth()-1);
 
 
         final Student transformedStudent = new Student(student.getFirstName(), student.getLastName(), student.getGpa(), dob);
