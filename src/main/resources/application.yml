@@ -1,7 +1,6 @@
 spring:
   application:
     name: sa-mini-project1
-
   datasource:
     password: postgres
     url: jdbc:postgresql://localhost:5432/mini-project1-db
