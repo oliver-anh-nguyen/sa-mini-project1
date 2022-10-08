@@ -6,36 +6,6 @@ spring:
       initialize-schema: always
   application:
     name: sa-mini-project1
-  datasource:
-    password: postgres
-    url: jdbc:postgresql://localhost:5432/mini-project1-db
-    username: postgres
-
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-
-        format_sql: true
-    show-sql: true
-    defer-datasource-initialization: true
-
-  sql:
-    init:
-      mode: always
-
-  main:
-    allow-bean-definition-overriding: true
-
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:9090/realms/sa-mini-project1-realm
-          jwk-set-uri: http://localhost:9090/realms/sa-mini-project1-realm/protocol/openid-connect/certs
 
 server:
   port: 8080

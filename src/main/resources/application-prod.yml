@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://sa-postgres:5432/mini-project1-db
+    username: postgres
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm
+          jwk-set-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm/protocol/openid-connect/certs

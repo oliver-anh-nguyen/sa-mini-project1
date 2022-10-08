@@ -22,6 +22,16 @@ services:
       - '9090:9090'
     command: ["start-dev", "--http-port=9090"]
 
+  sa-mini-project1-service:
+    build: ../sa-mini-project1
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - sa-postgres
+      - sa-keycloak
+    ports:
+      - '8080:8080'
+
 volumes:
   sa-db:
     driver: local
