@@ -7,5 +7,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm
-          jwk-set-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm/protocol/openid-connect/certs
+          issuer-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm-prod
+          jwk-set-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm-prod/protocol/openid-connect/certs
