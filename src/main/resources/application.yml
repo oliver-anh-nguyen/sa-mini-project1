@@ -9,3 +9,46 @@ spring:
 
 server:
   port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/mini-project1-db
+    username: postgres
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9090/realms/sa-mini-project1-realm-dev
+          jwk-set-uri: http://localhost:9090/realms/sa-mini-project1-realm-dev/protocol/openid-connect/certs
+
+keycloak:
+  client-id: sa-mini-project1
+  secret: C8qGz2pWGLD7QC46K4ORCQ2Q7z6kYIFd
+  auth-url: http://localhost:9090/realms/sa-mini-project1-realm-dev/protocol/openid-connect/token
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://sa-postgres:5432/mini-project1-db
+    username: postgres
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm-prod
+          jwk-set-uri: http://sa-keycloak:9090/realms/sa-mini-project1-realm-prod/protocol/openid-connect/certs
+
+keycloak:
+  client-id: sa-mini-project1
+  secret: T8eh8RcxXzKlAThXnOu8qLkKxmdSRTE7
+  auth-url: http://sa-keycloak:9090/realms/sa-mini-project1-realm-prod/protocol/openid-connect/token
