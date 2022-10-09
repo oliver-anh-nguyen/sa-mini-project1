@@ -12,5 +12,5 @@ spring:
 
 keycloak:
   client-id: sa-mini-project1
-  secret: HbQvaQSI1Xemb77i3ZAOIj7CSsOxY9sa
+  secret: C8qGz2pWGLD7QC46K4ORCQ2Q7z6kYIFd
   auth-url: http://localhost:9090/realms/sa-mini-project1-realm-dev/protocol/openid-connect/token
