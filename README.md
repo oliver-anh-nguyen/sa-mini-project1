@@ -28,9 +28,11 @@ Trigger POST request to http://localhost:9090/realms/sa-mini-project1-realm-prod
 <img src="./markdown/get_token_3.png" alt="Alt text" title="Step3">
 
 6. Trigger job with token
+
 ```
 Trigger POST request to http://localhost:8080/api/admin/batch
 ```
-<img src="./markdown/Run_Batch_Job.png.png" alt="Alt text" title="Batch Job">
+<img src="./markdown/Run_Batch_Job.png" alt="Alt text" title="Batch Job">
+
 7. Verify result in logs or postgres client
    <img src="./markdown/people.png" alt="Alt text" title="People">
