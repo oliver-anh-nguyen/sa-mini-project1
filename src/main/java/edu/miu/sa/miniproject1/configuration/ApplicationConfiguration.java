@@ -2,8 +2,10 @@ package edu.miu.sa.miniproject1.configuration;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PreDestroy;
 
@@ -13,6 +15,11 @@ import javax.annotation.PreDestroy;
 public class ApplicationConfiguration {
 
     private final JdbcTemplate jdbcTemplate;
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @PreDestroy
     public void onExit() {

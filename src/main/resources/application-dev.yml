@@ -9,3 +9,8 @@ spring:
         jwt:
           issuer-uri: http://localhost:9090/realms/sa-mini-project1-realm-dev
           jwk-set-uri: http://localhost:9090/realms/sa-mini-project1-realm-dev/protocol/openid-connect/certs
+
+keycloak:
+  client-id: sa-mini-project1
+  secret: HbQvaQSI1Xemb77i3ZAOIj7CSsOxY9sa
+  auth-url: http://localhost:9090/realms/sa-mini-project1-realm-dev/protocol/openid-connect/token

@@ -2,6 +2,7 @@ package edu.miu.sa.miniproject1.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -18,8 +19,12 @@ public class SecurityConfiguration {
     @Bean
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http
+                .cors()
+                .and()
+                .csrf().disable()
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/api/admin/**").hasRole("ADMIN")
+                        .pathMatchers("/api/login/**").permitAll()
+                        .pathMatchers( HttpMethod.POST, "/api/admin/*").hasRole("ADMIN")
                         .anyExchange().authenticated()
                 )
 
