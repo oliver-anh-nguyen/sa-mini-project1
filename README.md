@@ -3,13 +3,14 @@
 1. Tuan Anh Nguyen
 2. Tan Phat Nguyen
 
+### A 3 minute-video for the quick demo
+https://mum0-my.sharepoint.com/:v:/g/personal/tan_nguyen_miu_edu/EXyPpJKbJPVAnnx-uXLurEEBfS9x98lHcHX-alIOaYKZMg?e=yGC9xa
+
 ## Build project
 ```
 $ cd sa-mini-project1
 $ ./gradlew build
 ```
-### Please refer a 3 minute-video for the quick demo
-   https://mum0-my.sharepoint.com/:v:/g/personal/tan_nguyen_miu_edu/EXyPpJKbJPVAnnx-uXLurEEBfS9x98lHcHX-alIOaYKZMg?e=yGC9xa
 
 ## Run project
 1. Run docker compose to deploy the services
