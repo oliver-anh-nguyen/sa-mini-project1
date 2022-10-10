@@ -3,6 +3,8 @@
 1. Tuan Anh Nguyen
 2. Tan Phat Nguyen
 
+## Refer to README in GitHub to see screenshots https://github.com/oliver-anh-nguyen/sa-mini-project1
+
 ## Build project
 ```
 $ cd sa-mini-project1
@@ -25,7 +27,7 @@ $ curl --location --request POST 'http://localhost:8080/api/login' \
 --data-raw '{
     "username": "phat",
     "password": "123"
-}' | jq
+}'
 ```
 <img src="./markdown/get_token.png" alt="Alt text" title="Get Token">
 
