@@ -15,12 +15,19 @@ services:
   sa-keycloak:
     image: quay.io/keycloak/keycloak:19.0.2
     container_name: keycloak
+    volumes:
+      - ./keycloak/realms/export:/tmp/export
+      - ./keycloak/realms/import:/opt/keycloak/data/import
+    ports:
+      - '9090:9090'
+    command:
+      - "start-dev"
+      - "--import-realm"
+      - "--http-port=9090"
+
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
-    ports:
-      - '9090:9090'
-    command: ["start-dev", "--http-port=9090"]
 
   sa-mini-project1-service:
     build: ../sa-mini-project1
