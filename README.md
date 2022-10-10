@@ -3,8 +3,6 @@
 1. Tuan Anh Nguyen
 2. Tan Phat Nguyen
 
-## Refer to README in GitHub to see screenshots https://github.com/oliver-anh-nguyen/sa-mini-project1
-
 ## Build project
 ```
 $ cd sa-mini-project1
