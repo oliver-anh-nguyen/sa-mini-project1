@@ -1,4 +1,7 @@
 # SA Mini Project
+
+[![Java CI with Gradle](https://github.com/oliver-anh-nguyen/sa-mini-project1/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/oliver-anh-nguyen/sa-mini-project1/actions/workflows/gradle.yml)
+
 ## Members
 1. Tuan Anh Nguyen
 2. Tan Phat Nguyen
